@@ -1,8 +1,8 @@
-using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 using AlloyTechEpi10.Models.Pages;
-using EPiServer.Web;
 using EPiServer.Core;
+using EPiServer.Web;
 
 namespace AlloyTechEpi10.Models.ViewModels
 {

@@ -1,11 +1,9 @@
 using System;
 using System.Web.Mvc;
+using EPiServer;
 using EPiServer.Core;
 using EPiServer.Core.Html.StringParsing;
-using EPiServer.Web;
-using EPiServer.Web.Mvc;
 using EPiServer.Web.Mvc.Html;
-using EPiServer;
 
 namespace AlloyTechEpi10.Business.Rendering
 {

@@ -6,12 +6,12 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.WebPages;
+using AlloyTechEpi10.Business;
+using EPiServer;
 using EPiServer.Core;
 using EPiServer.ServiceLocation;
-using AlloyTechEpi10.Business;
 using EPiServer.Web.Mvc.Html;
 using EPiServer.Web.Routing;
-using EPiServer;
 
 namespace AlloyTechEpi10.Helpers
 {

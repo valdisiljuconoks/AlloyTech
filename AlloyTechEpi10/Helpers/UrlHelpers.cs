@@ -1,11 +1,11 @@
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using EPiServer;
 using EPiServer.Core;
 using EPiServer.Globalization;
 using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
-using EPiServer;
 
 namespace AlloyTechEpi10.Helpers
 {

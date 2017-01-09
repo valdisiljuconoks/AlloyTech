@@ -1,13 +1,13 @@
 using System.Web;
 using System.Web.Mvc;
-using EPiServer.Core;
 using AlloyTechEpi10.Helpers;
 using AlloyTechEpi10.Models.Blocks;
 using AlloyTechEpi10.Models.Pages;
 using AlloyTechEpi10.Models.ViewModels;
+using EPiServer;
+using EPiServer.Core;
 using EPiServer.Web;
 using EPiServer.Web.Mvc;
-using EPiServer;
 
 namespace AlloyTechEpi10.Controllers
 {

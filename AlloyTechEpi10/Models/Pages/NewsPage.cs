@@ -1,10 +1,10 @@
 using System.ComponentModel.DataAnnotations;
+using AlloyTechEpi10.Business;
+using AlloyTechEpi10.Models.Blocks;
 using EPiServer.DataAbstraction;
 using EPiServer.Filters;
 using EPiServer.Framework.Localization;
 using EPiServer.ServiceLocation;
-using AlloyTechEpi10.Business;
-using AlloyTechEpi10.Models.Blocks;
 
 namespace AlloyTechEpi10.Models.Pages
 {

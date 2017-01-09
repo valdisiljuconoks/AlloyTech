@@ -1,6 +1,6 @@
+using System;
 using EPiServer.Core;
 using EPiServer.DataAnnotations;
-using System;
 
 namespace AlloyTechEpi10.Models.Media
 {

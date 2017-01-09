@@ -1,10 +1,10 @@
 using System.Linq;
 using System.Web;
 using System.Web.WebPages;
+using AlloyTechEpi10.Business.Channels;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
 using EPiServer.ServiceLocation;
-using AlloyTechEpi10.Business.Channels;
 using EPiServer.Web;
 
 namespace AlloyTechEpi10.Business.Initialization

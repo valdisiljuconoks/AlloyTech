@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using EPiServer;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.ServiceLocation;

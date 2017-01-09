@@ -1,12 +1,12 @@
-using EPiServer.ServiceLocation;
-using EPiServer.Shell.Security;
-using Owin;
 using System;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using EPiServer.ServiceLocation;
+using EPiServer.Shell.Security;
+using Owin;
 
-namespace AlloyTechEpi10
+namespace AlloyTechEpi10.Business
 {
     public static class AdministratorRegistrationPage
     {

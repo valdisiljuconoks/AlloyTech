@@ -1,10 +1,10 @@
+using System;
 using System.Web.Mvc;
 using AlloyTechEpi10.Models.Media;
 using AlloyTechEpi10.Models.ViewModels;
+using EPiServer.Core;
 using EPiServer.Web.Mvc;
 using EPiServer.Web.Routing;
-using System;
-using EPiServer.Core;
 
 namespace AlloyTechEpi10.Controllers
 {

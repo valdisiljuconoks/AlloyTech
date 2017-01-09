@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using EPiServer.Core;
 using AlloyTechEpi10.Models.Blocks;
+using EPiServer.Core;
 
 namespace AlloyTechEpi10.Models.ViewModels
 {

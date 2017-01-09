@@ -1,9 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using AlloyTechEpi10.Models.Blocks;
+using AlloyTechEpi10.Models.Properties;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
-using AlloyTechEpi10.Models.Properties;
 
 namespace AlloyTechEpi10.Models.Pages
 {

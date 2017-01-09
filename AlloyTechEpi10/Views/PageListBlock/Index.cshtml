@@ -1,3 +1,4 @@
+@using AlloyTechEpi10.Helpers
 @model PageListModel
 @Html.FullRefreshPropertiesMetaData(new[] { "IncludePublishDate", "IncludeIntroduction", "Count", "SortOrder", "Root", "PageTypeFilter", "CategoryFilter", "Recursive" })
 <h2 @Html.EditAttributes(x => x.Heading)>@Model.Heading</h2>

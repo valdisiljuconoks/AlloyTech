@@ -4,7 +4,6 @@ using EPiServer.Core;
 using EPiServer.Filters;
 using EPiServer.Framework.Web;
 using EPiServer.ServiceLocation;
-using EPiServer;
 
 namespace AlloyTechEpi10.Business
 {

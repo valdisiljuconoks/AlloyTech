@@ -1,13 +1,14 @@
-using AlloyTechEpi10.Models;
-using EPiServer.Core;
-using EPiServer.ServiceLocation;
-using EPiServer.Shell.Security;
-using EPiServer.Web.Routing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using EPiServer.Security;
+using AlloyTechEpi10.Business;
+using AlloyTechEpi10.Models.Register;
+using EPiServer.Core;
 using EPiServer.DataAbstraction;
+using EPiServer.Security;
+using EPiServer.ServiceLocation;
+using EPiServer.Shell.Security;
+using EPiServer.Web.Routing;
 
 namespace AlloyTechEpi10.Controllers
 {

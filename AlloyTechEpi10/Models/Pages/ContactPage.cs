@@ -1,9 +1,7 @@
 using System.ComponentModel.DataAnnotations;
-using AlloyTechEpi10.Business;
-using AlloyTechEpi10.Business.EditorDescriptors;
 using AlloyTechEpi10.Business.Rendering;
-using EPiServer.Web;
 using EPiServer.Core;
+using EPiServer.Web;
 
 namespace AlloyTechEpi10.Models.Pages
 {
