@@ -1,13 +1,11 @@
 using System.Collections.Generic;
 using EPiServer.Core;
-using AlloyTechEpi10.Models.Pages;
 
 namespace AlloyTechEpi10.Models.ViewModels
 {
-    public class PreviewModel : PageViewModel<SitePageData>
+    public class PreviewModel
     {
-        public PreviewModel(SitePageData currentPage, IContent previewContent)
-            : base(currentPage)
+        public PreviewModel(IContent previewContent)
         {
             PreviewContent = previewContent;
             Areas = new List<PreviewArea>();

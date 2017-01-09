@@ -2,15 +2,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using EPiServer.Core;
-using EPiServer.Framework.Web;
-using EPiServer.Search;
 using AlloyTechEpi10.Business;
 using AlloyTechEpi10.Models.Pages;
 using AlloyTechEpi10.Models.ViewModels;
+using EPiServer.Core;
+using EPiServer.Framework.Web;
+using EPiServer.Search;
 using EPiServer.Web;
-using EPiServer.Web.Hosting;
-using EPiServer.Web.Mvc.Html;
 using EPiServer.Web.Routing;
 
 namespace AlloyTechEpi10.Controllers
@@ -38,7 +36,7 @@ namespace AlloyTechEpi10.Controllers
         [ValidateInput(false)]
         public ViewResult Index(SearchPage currentPage, string q)
         {
-            var model = new SearchContentModel(currentPage)
+            var model = new SearchContentModel
                 {
                     SearchServiceDisabled = !_searchService.IsActive,
                     SearchedQuery = q
@@ -51,7 +49,7 @@ namespace AlloyTechEpi10.Controllers
                     ControllerContext.HttpContext, 
                     currentPage.LanguageID).ToList();
                 model.Hits = hits;
-                model.NumberOfHits = hits.Count();
+                model.NumberOfHits = hits.Count;
             }
 
             return View(model);

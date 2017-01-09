@@ -1,5 +1,3 @@
-@using AlloyTechEpi10
-@model IPageViewModel<SitePageData>
 @{ Layout = "~/Views/Shared/Layouts/_Root.cshtml"; }
 
 @{Html.RenderPartial("Breadcrumbs");}
@@ -15,9 +13,9 @@
         {
             @RenderSection("RelatedContent")
        }
-        else if (Model.CurrentPage is IHasRelatedContent)
+        else if (CurrentPage is IHasRelatedContent)
         {
-            @Html.PropertyFor(x => ((IHasRelatedContent)x.CurrentPage).RelatedContentArea, new { CssClass = "row", Tag = Global.ContentAreaTags.OneThirdWidth })
+            @Html.PropertyFor(x => ((IHasRelatedContent)CurrentPage).RelatedContentArea, new { CssClass = "row", Tag = Global.ContentAreaTags.OneThirdWidth })
        }
     </div>
 </div>

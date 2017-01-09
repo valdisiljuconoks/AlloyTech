@@ -26,34 +26,6 @@ namespace AlloyTechEpi10.Business
             _databaseMode = databaseMode;
         }
 
-        public virtual LayoutModel CreateLayoutModel(ContentReference currentContentLink, RequestContext requestContext)
-        {
-            var startPageContentLink = SiteDefinition.Current.StartPage;
-
-            // Use the content link with version information when editing the startpage,
-            // otherwise the published version will be used when rendering the props below.
-            if (currentContentLink.CompareToIgnoreWorkID(startPageContentLink))
-            {
-                startPageContentLink = currentContentLink;
-            }
-
-            var startPage = _contentLoader.Get<StartPage>(startPageContentLink);
-
-            return new LayoutModel
-                {
-                    Logotype = startPage.SiteLogotype,
-                    LogotypeLinkUrl = new MvcHtmlString(_urlResolver.GetUrl(SiteDefinition.Current.StartPage)),
-                    ProductPages = startPage.ProductPageLinks,
-                    CompanyInformationPages = startPage.CompanyInformationPageLinks,
-                    NewsPages = startPage.NewsPageLinks,
-                    CustomerZonePages = startPage.CustomerZonePageLinks,
-                    LoggedIn = requestContext.HttpContext.User.Identity.IsAuthenticated,
-                    LoginUrl = new MvcHtmlString(GetLoginUrl(currentContentLink)),
-                    SearchActionUrl = new MvcHtmlString(EPiServer.Web.Routing.UrlResolver.Current.GetUrl(startPage.SearchPageLink)),
-                    IsInReadonlyMode = _databaseMode.DatabaseMode == DatabaseMode.ReadOnly
-                };
-        }
-
         private string GetLoginUrl(ContentReference returnToContentLink)
         {
             return string.Format(
@@ -74,6 +46,33 @@ namespace AlloyTechEpi10.Business
                 .OfType<PageData>()
                 .SkipWhile(x => x.ParentLink == null || !x.ParentLink.CompareToIgnoreWorkID(SiteDefinition.Current.StartPage))
                 .FirstOrDefault();
+        }
+
+        public LayoutModel UpdateLayoutModel(LayoutModel pageLayout, ContentReference currentContentLink, RequestContext requestContext)
+        {
+            var startPageContentLink = SiteDefinition.Current.StartPage;
+
+            // Use the content link with version information when editing the startpage,
+            // otherwise the published version will be used when rendering the props below.
+            if (currentContentLink.CompareToIgnoreWorkID(startPageContentLink))
+            {
+                startPageContentLink = currentContentLink;
+            }
+
+            var startPage = _contentLoader.Get<StartPage>(startPageContentLink);
+
+            pageLayout.Logotype = startPage.SiteLogotype;
+            pageLayout.LogotypeLinkUrl = new MvcHtmlString(_urlResolver.GetUrl(SiteDefinition.Current.StartPage));
+            pageLayout.ProductPages = startPage.ProductPageLinks;
+            pageLayout.CompanyInformationPages = startPage.CompanyInformationPageLinks;
+            pageLayout.NewsPages = startPage.NewsPageLinks;
+            pageLayout.CustomerZonePages = startPage.CustomerZonePageLinks;
+            pageLayout.LoggedIn = requestContext.HttpContext.User.Identity.IsAuthenticated;
+            pageLayout.LoginUrl = new MvcHtmlString(GetLoginUrl(currentContentLink));
+            pageLayout.SearchActionUrl = new MvcHtmlString(UrlResolver.Current.GetUrl(startPage.SearchPageLink));
+            pageLayout.IsInReadonlyMode = _databaseMode.DatabaseMode == DatabaseMode.ReadOnly;
+
+            return pageLayout;
         }
     }
 }

@@ -1,6 +1,6 @@
 using System.Web.Mvc;
-using AlloyTechEpi10.Models.Pages;
 using AlloyTechEpi10.Models.ViewModels;
+using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
 
 namespace AlloyTechEpi10.Business
@@ -24,28 +24,42 @@ namespace AlloyTechEpi10.Business
 
         public void OnResultExecuting(ResultExecutingContext filterContext)
         {
-            var viewModel = filterContext.Controller.ViewData.Model;
+            //var viewModel = filterContext.Controller.ViewData.Model;
 
-            var model = viewModel as IPageViewModel<SitePageData>;
-            if (model != null)
+            //var model = viewModel as IPageViewModel<SitePageData>;
+
+            var currentContentLink = filterContext.RequestContext.GetContentLink();
+
+            if(currentContentLink != null)
             {
-                var currentContentLink = filterContext.RequestContext.GetContentLink();
-                
-                var layoutModel = model.Layout ?? _contextFactory.CreateLayoutModel(currentContentLink, filterContext.RequestContext);
-                
+                var pageLayout = ServiceLocator.Current.GetInstance<LayoutModel>();
+                _contextFactory.UpdateLayoutModel(pageLayout, currentContentLink, filterContext.RequestContext);
                 var layoutController = filterContext.Controller as IModifyLayout;
-                if(layoutController != null)
-                {
-                    layoutController.ModifyLayout(layoutModel);
-                }
-                
-                model.Layout = layoutModel;
+                layoutController?.ModifyLayout(pageLayout);
 
-                if (model.Section == null)
-                {
-                    model.Section = _contextFactory.GetSection(currentContentLink);
-                }
+                pageLayout.Section = _contextFactory.GetSection(currentContentLink);
+
             }
+
+            //if (model != null)
+            //{
+            //    var currentContentLink = filterContext.RequestContext.GetContentLink();
+
+            //    var layoutModel = model.Layout ?? _contextFactory.CreateLayoutModel(currentContentLink, filterContext.RequestContext);
+
+            //    var layoutController = filterContext.Controller as IModifyLayout;
+            //    if(layoutController != null)
+            //    {
+            //        layoutController.ModifyLayout(layoutModel);
+            //    }
+
+            //    //model.Layout = layoutModel;
+
+            //    //if (model.Section == null)
+            //    //{
+            //    //    model.Section = _contextFactory.GetSection(currentContentLink);
+            //    //}
+            //}
         }
 
         public void OnResultExecuted(ResultExecutedContext filterContext)

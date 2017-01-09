@@ -1,19 +1,13 @@
 using System.Collections.Generic;
-using System.Web;
-using AlloyTechEpi10.Models.Pages;
 
 namespace AlloyTechEpi10.Models.ViewModels
 {
-    public class SearchContentModel : PageViewModel<SearchPage>
+    public class SearchContentModel
     {
-        public SearchContentModel(SearchPage currentPage) : base(currentPage)
-        {
-        }
-
         public bool SearchServiceDisabled { get; set; }
         public string SearchedQuery { get; set; }
         public int NumberOfHits { get; set; }
-        public IEnumerable<SearchHit> Hits { get; set; }  
+        public IEnumerable<SearchHit> Hits { get; set; }
 
         public class SearchHit
         {

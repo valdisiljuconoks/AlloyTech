@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Owin;
 using System;
 using System.Web;
+using AlloyTechEpi10.Business;
 
 [assembly: OwinStartup(typeof(AlloyTechEpi10.Startup))]
 

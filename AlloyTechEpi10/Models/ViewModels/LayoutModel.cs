@@ -1,10 +1,9 @@
-using System.Collections.Generic;
+using System;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Routing;
+using AlloyTechEpi10.Models.Blocks;
 using EPiServer.Core;
 using EPiServer.SpecializedProperties;
-using AlloyTechEpi10.Models.Blocks;
 
 namespace AlloyTechEpi10.Models.ViewModels
 {
@@ -22,7 +21,7 @@ namespace AlloyTechEpi10.Models.ViewModels
         public MvcHtmlString LoginUrl { get; set; }
         public MvcHtmlString LogOutUrl { get; set; }
         public MvcHtmlString SearchActionUrl { get; set; }
-
-        public bool IsInReadonlyMode {get;set;}
+        public bool IsInReadonlyMode { get; set; }
+        public IContent Section { get; set; }
     }
 }

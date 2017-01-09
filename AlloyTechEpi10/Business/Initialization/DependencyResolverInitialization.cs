@@ -1,12 +1,13 @@
 using System.Web.Mvc;
+using AlloyTechEpi10.Business.Rendering;
+using AlloyTechEpi10.Models.ViewModels;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
 using EPiServer.ServiceLocation;
-using AlloyTechEpi10.Business.Rendering;
-using AlloyTechEpi10.Helpers;
 using EPiServer.Web.Mvc;
 using EPiServer.Web.Mvc.Html;
 using StructureMap;
+using StructureMap.Web.Pipeline;
 
 namespace AlloyTechEpi10.Business.Initialization
 {
@@ -28,6 +29,8 @@ namespace AlloyTechEpi10.Business.Initialization
             container.For<ContentAreaRenderer>().Use<AlloyContentAreaRenderer>();
 
             //Implementations for custom interfaces can be registered here.
+
+            container.For<LayoutModel>().Use<LayoutModel>().SetLifecycleTo<HttpContextLifecycle>();
         }
 
         public void Initialize(InitializationEngine context)

@@ -1,16 +1,14 @@
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using AlloyTechEpi10.Business;
+using AlloyTechEpi10.Models.Pages;
+using AlloyTechEpi10.Models.ViewModels;
+using EPiServer;
 using EPiServer.Core;
 using EPiServer.Framework.DataAnnotations;
 using EPiServer.Framework.Web;
-using AlloyTechEpi10.Business;
-using AlloyTechEpi10.Business.Rendering;
-using AlloyTechEpi10.Models.Pages;
-using AlloyTechEpi10.Models.ViewModels;
 using EPiServer.Web;
 using EPiServer.Web.Mvc;
-using EPiServer;
 
 namespace AlloyTechEpi10.Controllers
 {
@@ -42,7 +40,7 @@ namespace AlloyTechEpi10.Controllers
             //As the layout requires a page for title etc we "borrow" the start page
             var startPage = _contentLoader.Get<StartPage>(SiteDefinition.Current.StartPage);
 
-            var model = new PreviewModel(startPage, currentContent);
+            var model = new PreviewModel(startPage);
 
             var supportedDisplayOptions = _displayOptions
                 .Select(x => new { Tag = x.Tag, Name = x.Name, Supported = SupportsTag(currentContent, x.Tag) })

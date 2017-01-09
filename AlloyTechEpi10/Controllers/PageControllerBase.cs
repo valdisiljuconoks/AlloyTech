@@ -1,10 +1,10 @@
 using System.Web.Mvc;
-using System.Web.Security;
 using AlloyTechEpi10.Business;
 using AlloyTechEpi10.Models.Pages;
 using AlloyTechEpi10.Models.ViewModels;
-using EPiServer.Web.Mvc;
+using EPiServer.ServiceLocation;
 using EPiServer.Shell.Security;
+using EPiServer.Web.Mvc;
 
 namespace AlloyTechEpi10.Controllers
 {
@@ -17,6 +17,10 @@ namespace AlloyTechEpi10.Controllers
     {
 
         protected EPiServer.ServiceLocation.Injected<UISignInManager> UISignInManager;
+
+        private Injected<LayoutModel> LayoutModel { get; set; }
+
+        public LayoutModel PageLayout => LayoutModel.Service;
 
         /// <summary>
         /// Signs out the current user and redirects to the Index action of the same controller.
